@@ -51,16 +51,13 @@ func Logger(ctx *gin.Context) *zerolog.Logger {
 }
 
 func Info(ctx *gin.Context) *zerolog.Event {
-	l := ctx.MustGet(loggerContextKey).(zerolog.Logger)
-	return l.Info()
+	return Logger(ctx).Info()
 }
 
 func Warn(ctx *gin.Context) *zerolog.Event {
-	l := ctx.MustGet(loggerContextKey).(zerolog.Logger)
-	return l.Warn()
+	return Logger(ctx).Warn()
 }
 
 func Error(ctx *gin.Context) *zerolog.Event {
-	l := ctx.MustGet(loggerContextKey).(zerolog.Logger)
-	return l.Error()
+	return Logger(ctx).Error()
 }
