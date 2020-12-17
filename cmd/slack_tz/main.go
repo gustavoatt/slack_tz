@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"slack_tz/internal/botcommands"
 	"slack_tz/internal/logging"
 	"strings"
@@ -15,7 +16,7 @@ import (
 )
 
 var (
-	slackCl = slack.New("xoxb-574908150274-1548687321408-qqNtOn6mB7u53246aEs0QpDB")
+	slackCl = slack.New(os.Getenv("SLACK_TOKEN"))
 )
 
 type hookResponse struct {
